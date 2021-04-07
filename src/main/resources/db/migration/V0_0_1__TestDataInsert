@@ -1,14 +1,14 @@
 insert into authority(id, name) values ('1','DUMMY');
 
-insert into brand(id,name)values (('1','SoFlow')
+insert into brand(id,name)values ('1','SoFlow')
                                  ,('2','Segway')
                                  ,('3','Xiaomi')
                                  ,('4','VMAX')
                                  ,('5','Micro')
                                  ,('6','Razor')
-                                 ,('7','BIRD'));
+                                 ,('7','BIRD');
 
-insert  into model(id,name,brand_id)values (('1','SO1','1')
+insert  into model(id,name,brand_id)values ('1','SO1','1')
                                            ,('2','SO2','1')
                                            ,('3','SO3','1')
                                            ,('4','SO4','1')
@@ -41,22 +41,19 @@ insert  into model(id,name,brand_id)values (('1','SO1','1')
                                            ,('31','EcoSmart SUP Electric Scooter','6')
                                            ,('32','One','7')
                                            ,('33','Air','7')
-                                           ,('34','Two','7')
-                                           );
+                                           ,('34','Two','7');
 
-insert into role(id,name) values (('1','customer')
-                                  ,('2','seller')
-                                  );
-insert into role_authority(role_id,authority_id)values (('1','1')
-                                                        ,('2','1')
-                                                        );
-insert into users(id, account_expiration_date, credentials_expiration_date, email, enabled, first_name, last_name, locked, password)values
-(('1','','','user1@mail.com',1,'Wheelie','Wonka',0,'$2b$10$RQrPjjvtLJ4d/1IXv5d86O/tjYQaxXLEFY/M3L6syEfamFStnkutu')
-,('2','','','user2@mail.com',1,'Usain','Volt',0,'$2b$10$RQrPjjvtLJ4d/1IXv5d86O/tjYQaxXLEFY/M3L6syEfamFStnkutu')
-);
+insert into role(id,name) values ('1','customer')
+                                 ,('2','seller');
 
-insert into users_role(users_id, role_id) VALUES (('1','1')
-                                                  ,('2','2')
-                                                  );
+insert into role_authority(role_id,authority_id)values ('1','1')
+                                                       ,('2','1');
+
+insert into users(id, account_expiration_date, credentials_expiration_date, email, enabled, first_name, last_name, locked, password, alias, phone, street, city)values
+('1',null,null,'user1@mail.com',1,'Wheelie','Wonka',0,'$2b$10$RQrPjjvtLJ4d/1IXv5d86O/tjYQaxXLEFY/M3L6syEfamFStnkutu', 'Chocolate factory', '123 456 78 90', 'Winkelgasse 12', 'Bern')
+,('2',null,null,'user2@mail.com',1,'Usain','Volt',0,'$2b$10$RQrPjjvtLJ4d/1IXv5d86O/tjYQaxXLEFY/M3L6syEfamFStnkutu', 'Sprinz Ag', '098 765 43 21', 'Ausstellungsstrasse 70', 'Zürich');
+
+insert into users_role(users_id, role_id) VALUES ('1','1')
+                                                 ,('2','2') ;
 
 
