@@ -3,6 +3,8 @@ package ch.tbz.scooterscout.core.user;
 import ch.tbz.scooterscout.core.ExtendedEntity;
 import ch.tbz.scooterscout.core.validation.notnull.NotNull;
 import ch.tbz.scooterscout.core.role.Role;
+import ch.tbz.scooterscout.domain.scooter.Scooter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
@@ -18,6 +20,22 @@ public class User extends ExtendedEntity {
 
     @Column(name = "last_name")
     private String lastName;
+
+    @Column(name = "alias")
+    private String alias;
+
+    @Column(name = "street")
+    private String street;
+
+    @Column(name = "city")
+    private String city;
+
+    @Column(name= "phone")
+    private String phone;
+
+    @JsonIgnore
+    @OneToMany(mappedBy="user")
+    private Set<Scooter> scooters;
 
     @Column(name = "password")
     private String password;
@@ -134,6 +152,51 @@ public class User extends ExtendedEntity {
 
     public User setRoles(Set<Role> roles) {
         this.roles = roles;
+        return this;
+    }
+
+    public String getAlias() {
+        return alias;
+    }
+
+    public User setAlias(String alias) {
+        this.alias = alias;
+        return this;
+    }
+
+    public String getStreet() {
+        return street;
+    }
+
+    public User setStreet(String street) {
+        this.street = street;
+        return this;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public User setCity(String city) {
+        this.city = city;
+        return this;
+    }
+
+    public Set<Scooter> getScooters() {
+        return scooters;
+    }
+
+    public User setScooters(Set<Scooter> scooters) {
+        this.scooters = scooters;
+        return this;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public User setPhone(String phone) {
+        this.phone = phone;
         return this;
     }
 }

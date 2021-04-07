@@ -17,4 +17,8 @@ public class ScooterServiceImpl extends ExtendedServiceImpl<Scooter> implements 
     @Override public List<Scooter> findTop10() {
         return ((ScooterRepository) repository).findAll().stream().limit(10).collect(Collectors.toList());
     }
+
+    @Override public long getTotalCount() {
+        return ((ScooterRepository) repository).countAll();
+    }
 }

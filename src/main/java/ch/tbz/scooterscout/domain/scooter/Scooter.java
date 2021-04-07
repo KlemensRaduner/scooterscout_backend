@@ -1,8 +1,11 @@
 package ch.tbz.scooterscout.domain.scooter;
 
 import ch.tbz.scooterscout.core.ExtendedEntity;
+import ch.tbz.scooterscout.core.user.User;
+import ch.tbz.scooterscout.domain.brand.Brand;
 import ch.tbz.scooterscout.domain.model.Model;
 import com.fasterxml.jackson.annotation.JsonIdentityReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 
@@ -23,9 +26,13 @@ public class Scooter extends ExtendedEntity {
     private String image;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "model")
+    @JoinColumn(name = "model_id")
     @JsonIdentityReference(alwaysAsId = true)
     private Model model;
+
+    @ManyToOne
+    @JoinColumn(name="user_id", nullable=false)
+    private User user;
 
     public Scooter() {
     }
@@ -67,6 +74,24 @@ public class Scooter extends ExtendedEntity {
 
     public Scooter setImage(String image) {
         this.image = image;
+        return this;
+    }
+
+    public Model getModel() {
+        return model;
+    }
+
+    public Scooter setModel(Model model) {
+        this.model = model;
+        return this;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public Scooter setUser(User user) {
+        this.user = user;
         return this;
     }
 }

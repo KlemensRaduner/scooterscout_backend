@@ -21,7 +21,7 @@ public class BrandController {
         this.brandService = brandService;
     }
 
-    @GetMapping("")
+    @GetMapping({"", "/"})
     @PreAuthorize("hasAuthority('BRANDS_SEE')")
     public ResponseEntity<List<Brand>> getAll() {
         List<Brand> brands = brandService.findAll();

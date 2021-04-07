@@ -7,4 +7,6 @@ import java.util.List;
 public interface ScooterService extends ExtendedService<Scooter> {
 
     public List<Scooter> findTop10();
+
+    public long getTotalCount();
 }
