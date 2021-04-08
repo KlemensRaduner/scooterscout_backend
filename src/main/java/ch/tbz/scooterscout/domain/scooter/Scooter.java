@@ -19,13 +19,19 @@ public class Scooter extends ExtendedEntity {
     @Column(name = "description")
     private String description;
 
+    @Column(name = "street")
+    private String street;
+
+    @Column(name = "city")
+    private String city;
+
     @Column(name = "price")
     private double price;
 
     @Column(name = "image", columnDefinition = "TEXT")
     private String image;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "model_id")
     @JsonIdentityReference(alwaysAsId = true)
     private Model model;
@@ -93,5 +99,36 @@ public class Scooter extends ExtendedEntity {
     public Scooter setUser(User user) {
         this.user = user;
         return this;
+    }
+
+    public String getStreet() {
+        return street;
+    }
+
+    public Scooter setStreet(String street) {
+        this.street = street;
+        return this;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public Scooter setCity(String city) {
+        this.city = city;
+        return this;
+    }
+
+    @Override public String toString() {
+        return "Scooter{" +
+                "name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", street='" + street + '\'' +
+                ", city='" + city + '\'' +
+                ", price=" + price +
+                ", image='" + image + '\'' +
+                ", model=" + model +
+                ", user=" + user +
+                '}';
     }
 }

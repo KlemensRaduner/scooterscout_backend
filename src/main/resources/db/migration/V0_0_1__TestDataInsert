@@ -49,9 +49,9 @@ insert into role(id,name) values ('1','customer')
 insert into role_authority(role_id,authority_id)values ('1','1')
                                                        ,('2','1');
 
-insert into users(id, account_expiration_date, credentials_expiration_date, email, enabled, first_name, last_name, locked, password, alias, phone, street, city)values
-('1',null,null,'user1@mail.com',1,'Wheelie','Wonka',0,'$2b$10$RQrPjjvtLJ4d/1IXv5d86O/tjYQaxXLEFY/M3L6syEfamFStnkutu', 'Chocolate factory', '123 456 78 90', 'Winkelgasse 12', 'Bern')
-,('2',null,null,'user2@mail.com',1,'Usain','Volt',0,'$2b$10$RQrPjjvtLJ4d/1IXv5d86O/tjYQaxXLEFY/M3L6syEfamFStnkutu', 'Sprinz Ag', '098 765 43 21', 'Ausstellungsstrasse 70', 'Zürich');
+insert into users(id, account_expiration_date, credentials_expiration_date, email, enabled, first_name, last_name, locked, password, alias, phone)values
+('1',null,null,'user1@mail.com',1,'Wheelie','Wonka',0,'$2b$10$RQrPjjvtLJ4d/1IXv5d86O/tjYQaxXLEFY/M3L6syEfamFStnkutu', 'Chocolate factory', '123 456 78 90')
+,('2',null,null,'user2@mail.com',1,'Usain','Volt',0,'$2b$10$RQrPjjvtLJ4d/1IXv5d86O/tjYQaxXLEFY/M3L6syEfamFStnkutu', 'Sprinz Ag', '098 765 43 21');
 
 insert into users_role(users_id, role_id) VALUES ('1','1')
                                                  ,('2','2') ;

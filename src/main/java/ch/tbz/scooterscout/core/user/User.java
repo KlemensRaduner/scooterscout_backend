@@ -24,12 +24,6 @@ public class User extends ExtendedEntity {
     @Column(name = "alias")
     private String alias;
 
-    @Column(name = "street")
-    private String street;
-
-    @Column(name = "city")
-    private String city;
-
     @Column(name= "phone")
     private String phone;
 
@@ -161,24 +155,6 @@ public class User extends ExtendedEntity {
 
     public User setAlias(String alias) {
         this.alias = alias;
-        return this;
-    }
-
-    public String getStreet() {
-        return street;
-    }
-
-    public User setStreet(String street) {
-        this.street = street;
-        return this;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public User setCity(String city) {
-        this.city = city;
         return this;
     }
 

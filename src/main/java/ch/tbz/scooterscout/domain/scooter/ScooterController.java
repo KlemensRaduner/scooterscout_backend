@@ -57,4 +57,12 @@ public class ScooterController {
         return new ResponseEntity<>(total, HttpStatus.OK);
     }
 
+    @PostMapping({"", "/"})
+    @PreAuthorize("hasAuthority('SCOOTER_CREATE')")
+    public ResponseEntity<Scooter> postScooter(@RequestBody Scooter scooter) {
+        System.out.println(scooter);
+        Scooter newScooter = scooterService.save(scooter);
+        return new ResponseEntity<>(newScooter, HttpStatus.CREATED);
+    }
+
 }
